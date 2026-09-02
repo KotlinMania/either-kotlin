@@ -551,3 +551,9 @@ public fun <R> from(result: Result<R>): Either<Throwable, R> =
         onSuccess = { Either.Right(it) },
         onFailure = { Either.Left(it) },
     )
+
+// Upstream Rust implements Read, Write, BufRead, DerefMut, Future, and Error traits
+// on Either<L, R> where both L and R implement those traits. In Kotlin, interface
+// delegation requires interface types rather than generic type parameters, so those
+// trait implementations are omitted per workspace translation guidelines.
+
