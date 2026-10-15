@@ -1,9 +1,9 @@
 // port-lint: source lib.rs
 package io.github.kotlinmania.either
 
-import kotlin.jvm.JvmName
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlin.jvm.JvmName
 
 /**
  * The enum [Either] with variants [Left] and [Right] is a general purpose
@@ -556,4 +556,3 @@ public fun <R> from(result: Result<R>): Either<Throwable, R> =
 // on Either<L, R> where both L and R implement those traits. In Kotlin, interface
 // delegation requires interface types rather than generic type parameters, so those
 // trait implementations are omitted per workspace translation guidelines.
-

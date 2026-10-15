@@ -8,8 +8,8 @@ package io.github.kotlinmania.either
  */
 internal class IterEither<L, R>(
     public val inner: Either<Iterator<L>, Iterator<R>>,
-) : Iterator<Either<L, R>>, Iterable<Either<L, R>> {
-
+) : Iterator<Either<L, R>>,
+    Iterable<Either<L, R>> {
     public companion object {
         /**
          * Creates a new [IterEither] wrapping the given [inner] either of iterators.
@@ -20,14 +20,18 @@ internal class IterEither<L, R>(
 
     override fun iterator(): Iterator<Either<L, R>> = this
 
-    override fun hasNext(): Boolean = when (inner) {
-        is Either.Left -> inner.value.hasNext()
-        is Either.Right -> inner.value.hasNext()
-    }
+    override fun hasNext(): Boolean =
+        when (inner) {
+            is Either.Left -> inner.value.hasNext()
+            is Either.Right -> inner.value.hasNext()
+        }
 
-    override fun next(): Either<L, R> = when (inner) {
-        is Either.Left -> Either.Left(inner.value.next())
-        is Either.Right -> Either.Right(inner.value.next())
+    override fun next(): Either<L, R> {
+        if (!hasNext()) throw NoSuchElementException()
+        return when (inner) {
+            is Either.Left -> Either.Left(inner.value.next())
+            is Either.Right -> Either.Right(inner.value.next())
+        }
     }
 
     /**
@@ -204,8 +208,9 @@ internal class IterEither<L, R>(
      * Extends this iterator with elements from an iterable.
      */
     public fun extend(elements: Iterable<Either<L, R>>) {
-        for (elem in elements) {
-            // iterator consumption extension
+        val iterator = elements.iterator()
+        while (iterator.hasNext()) {
+            iterator.next()
         }
     }
 }
