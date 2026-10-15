@@ -1,6 +1,11 @@
 // port-lint: tests lib.rs
 package io.github.kotlinmania.either
 
+import io.github.kotlinmania.serdecore.de.I32Deserialize
+import io.github.kotlinmania.serdecore.de.StringDeserialize
+import io.github.kotlinmania.serdetest.Token
+import io.github.kotlinmania.serdetest.assertDeTokens
+import io.github.kotlinmania.serdetest.assertTokens
 import kotlinx.serialization.json.Json
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -276,6 +281,46 @@ class EitherTest {
         val either = from(failure)
         assertTrue(either.isLeft())
         assertEquals("boom", either.left()?.message)
+    }
+
+    @Test
+    fun testEitherSerde() {
+        val leftVal: Either<Int, String> = Either.Left(42)
+        val leftTokens =
+            listOf(
+                Token.NewtypeVariant("Either", "Left"),
+                Token.I32(42),
+            )
+        assertTokens(leftVal, eitherDeserialize(I32Deserialize, StringDeserialize), leftTokens)
+
+        val rightVal: Either<Int, String> = Either.Right("hello")
+        val rightTokens =
+            listOf(
+                Token.NewtypeVariant("Either", "Right"),
+                Token.Str("hello"),
+            )
+        assertTokens(rightVal, eitherDeserialize(I32Deserialize, StringDeserialize), rightTokens)
+    }
+
+    @Test
+    fun testEitherSerdeUntagged() {
+        val leftVal: Either<Int, String> = Either.Left(42)
+        assertDeTokens(leftVal, serdeUntaggedDeserialize(I32Deserialize, StringDeserialize), listOf(Token.I32(42)))
+
+        val rightVal: Either<Int, String> = Either.Right("hello")
+        assertDeTokens(rightVal, serdeUntaggedDeserialize(I32Deserialize, StringDeserialize), listOf(Token.Str("hello")))
+    }
+
+    @Test
+    fun testEitherSerdeUntaggedOptional() {
+        val leftVal: Either<Int, String>? = Either.Left(42)
+        assertDeTokens(leftVal, serdeUntaggedOptionalDeserialize(I32Deserialize, StringDeserialize), listOf(Token.Some, Token.I32(42)))
+
+        val rightVal: Either<Int, String>? = Either.Right("hello")
+        assertDeTokens(rightVal, serdeUntaggedOptionalDeserialize(I32Deserialize, StringDeserialize), listOf(Token.Some, Token.Str("hello")))
+
+        val nullVal: Either<Int, String>? = null
+        assertDeTokens(nullVal, serdeUntaggedOptionalDeserialize(I32Deserialize, StringDeserialize), listOf(Token.None))
     }
 
     @Test
