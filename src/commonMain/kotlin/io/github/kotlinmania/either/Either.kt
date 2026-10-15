@@ -1,6 +1,18 @@
 // port-lint: source lib.rs
 package io.github.kotlinmania.either
 
+import io.github.kotlinmania.serde.SerdeError
+import io.github.kotlinmania.serde.SerdeException
+import io.github.kotlinmania.serde.SerdeResult
+import io.github.kotlinmania.serde.serdeCatching
+import io.github.kotlinmania.serdecore.de.Deserialize
+import io.github.kotlinmania.serdecore.de.DeserializeSeed
+import io.github.kotlinmania.serdecore.de.Deserializer
+import io.github.kotlinmania.serdecore.de.EnumAccess
+import io.github.kotlinmania.serdecore.de.Unexpected
+import io.github.kotlinmania.serdecore.de.Visitor
+import io.github.kotlinmania.serdecore.ser.Serialize
+import io.github.kotlinmania.serdecore.ser.Serializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlin.jvm.JvmName
@@ -19,7 +31,7 @@ import kotlin.jvm.JvmName
  * ```
  */
 @Serializable
-public sealed class Either<out L, out R> {
+public sealed class Either<out L, out R> : Serialize {
     /**
      * A value of type [L].
      */
@@ -41,7 +53,208 @@ public sealed class Either<out L, out R> {
     ) : Either<Nothing, R>() {
         override fun toString(): String = "Right($value)"
     }
+
+    override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+        when (this) {
+            is Left -> serializer.serializeNewtypeVariant("Either", 0u, "Left", wrapSerialize(value))
+            is Right -> serializer.serializeNewtypeVariant("Either", 1u, "Right", wrapSerialize(value))
+        }
 }
+
+public fun wrapSerialize(value: Any?): Serialize =
+    when (value) {
+        null -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeNone()
+            }
+        }
+
+        is Serialize -> {
+            value
+        }
+
+        is Boolean -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeBool(value)
+            }
+        }
+
+        is Int -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeI32(value)
+            }
+        }
+
+        is Long -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeI64(value)
+            }
+        }
+
+        is Byte -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeI8(value)
+            }
+        }
+
+        is Short -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeI16(value)
+            }
+        }
+
+        is UByte -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeU8(value)
+            }
+        }
+
+        is UShort -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeU16(value)
+            }
+        }
+
+        is UInt -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeU32(value)
+            }
+        }
+
+        is ULong -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeU64(value)
+            }
+        }
+
+        is Float -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeF32(value)
+            }
+        }
+
+        is Double -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeF64(value)
+            }
+        }
+
+        is Char -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeChar(value)
+            }
+        }
+
+        is String -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeStr(value)
+            }
+        }
+
+        is ByteArray -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serializer.serializeBytes(value)
+            }
+        }
+
+        is Iterable<*> -> {
+            object : Serialize {
+                override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+                    serdeCatching {
+                        val list = value.toList()
+                        val seq = serializer.serializeSeq(list.size).getOrThrow()
+                        for (item in list) {
+                            seq.serializeElement(wrapSerialize(item)).getOrThrow()
+                        }
+                        seq.end().getOrThrow()
+                    }
+            }
+        }
+
+        else -> {
+            error("Cannot serialize value of type ${value::class}")
+        }
+    }
+
+private class EitherVisitor<L, R>(
+    private val leftDeserialize: Deserialize<L>,
+    private val rightDeserialize: Deserialize<R>,
+) : Visitor<Either<L, R>> {
+    override fun expecting(): String = "enum Either"
+
+    override fun <A> visitEnum(access: A): SerdeResult<Either<L, R>> where A : EnumAccess =
+        serdeCatching {
+            val (field, variant) = access.variantSeed(EitherFieldDeserialize).getOrThrow()
+            when (field) {
+                "Left" -> Either.Left(variant.newtypeVariant(SeedFromDeserialize(leftDeserialize)).getOrThrow())
+                "Right" -> Either.Right(variant.newtypeVariant(SeedFromDeserialize(rightDeserialize)).getOrThrow())
+                else -> throw SerdeException(SerdeError.unknownVariant(field, listOf("Left", "Right")))
+            }
+        }
+}
+
+private object EitherFieldVisitor : Visitor<String> {
+    override fun expecting(): String = "`Left` or `Right`"
+
+    override fun visitU64(v: ULong): SerdeResult<String> =
+        when (v) {
+            0uL -> SerdeResult.success("Left")
+            1uL -> SerdeResult.success("Right")
+            else -> SerdeResult.failure(SerdeError.invalidValue(Unexpected.Unsigned(v), this))
+        }
+
+    override fun visitStr(v: String): SerdeResult<String> =
+        when (v) {
+            "Left", "Right" -> SerdeResult.success(v)
+            else -> SerdeResult.failure(SerdeError.unknownVariant(v, listOf("Left", "Right")))
+        }
+
+    override fun visitBytes(v: ByteArray): SerdeResult<String> {
+        val s =
+            try {
+                v.decodeToString(throwOnInvalidSequence = true)
+            } catch (_: Exception) {
+                return SerdeResult.failure(SerdeError.invalidValue(Unexpected.Bytes(v), this))
+            }
+        return visitStr(s)
+    }
+}
+
+private object EitherFieldDeserialize : Deserialize<String>, DeserializeSeed<String> {
+    override fun <D : Deserializer> deserialize(deserializer: D): SerdeResult<String> =
+        deserializer.deserializeIdentifier(EitherFieldVisitor)
+}
+
+private class SeedFromDeserialize<T>(
+    private val deserialize: Deserialize<T>,
+) : DeserializeSeed<T> {
+    override fun <D : Deserializer> deserialize(deserializer: D): SerdeResult<T> =
+        deserialize.deserialize(deserializer)
+}
+
+public fun <L, R> eitherDeserialize(
+    leftDeserialize: Deserialize<L>,
+    rightDeserialize: Deserialize<R>,
+): Deserialize<Either<L, R>> =
+    object : Deserialize<Either<L, R>> {
+        override fun <D : Deserializer> deserialize(deserializer: D): SerdeResult<Either<L, R>> =
+            deserializer.deserializeEnum("Either", listOf("Left", "Right"), EitherVisitor(leftDeserialize, rightDeserialize))
+    }
 
 /**
  * Return true if the value is the [Either.Left] variant.
