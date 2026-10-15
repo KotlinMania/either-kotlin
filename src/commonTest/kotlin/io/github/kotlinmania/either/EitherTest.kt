@@ -25,20 +25,22 @@ class EitherTest {
     fun macros() {
         fun a(): Either<Int, Int> {
             val eitherVal: Either<Int, Int> = Either.Right(1337)
-            val x = when (eitherVal) {
-                is Either.Left -> return Either.Left(eitherVal.value * 2)
-                is Either.Right -> eitherVal.value
-            }
+            val x =
+                when (eitherVal) {
+                    is Either.Left -> return Either.Left(eitherVal.value * 2)
+                    is Either.Right -> eitherVal.value
+                }
             return Either.Right(x)
         }
         assertEquals(Either.Right(1337), a())
 
         fun b(): Either<String, String> {
             val eitherVal: Either<String, String> = Either.Left("foo bar")
-            val x = when (eitherVal) {
-                is Either.Left -> eitherVal.value
-                is Either.Right -> return Either.Right(eitherVal.value)
-            }
+            val x =
+                when (eitherVal) {
+                    is Either.Left -> eitherVal.value
+                    is Either.Right -> return Either.Right(eitherVal.value)
+                }
             return Either.Left(x)
         }
         assertEquals(Either.Left("foo bar"), b())
@@ -59,10 +61,11 @@ class EitherTest {
     @Test
     fun iter() {
         val x = 3
-        val iter: Iterator<Int> = when (x) {
-            3 -> (0 until 10).iterator()
-            else -> (17 until 100).iterator()
-        }
+        val iter: Iterator<Int> =
+            when (x) {
+                3 -> (0 until 10).iterator()
+                else -> (17 until 100).iterator()
+            }
         val eitherIter: Either<Iterator<Int>, Iterator<Int>> = Either.Left(iter)
         val intoIter = eitherIter.intoIter()
 
@@ -277,10 +280,11 @@ class EitherTest {
 
     @Test
     fun serdeUntaggedTest() {
-        val serializer = UntaggedEitherSerializer(
-            leftSerializer = kotlinx.serialization.serializer<Int>(),
-            rightSerializer = kotlinx.serialization.serializer<String>(),
-        )
+        val serializer =
+            UntaggedEitherSerializer(
+                leftSerializer = kotlinx.serialization.serializer<Int>(),
+                rightSerializer = kotlinx.serialization.serializer<String>(),
+            )
         val json = Json { ignoreUnknownKeys = true }
 
         val leftVal: Either<Int, String> = Either.Left(42)
@@ -298,29 +302,61 @@ class EitherTest {
     }
 
     @Test
+    fun serdeUntaggedOptionalTest() {
+        val serializer =
+            UntaggedOptionalEitherSerializer(
+                leftSerializer = kotlinx.serialization.serializer<Int>(),
+                rightSerializer = kotlinx.serialization.serializer<String>(),
+            )
+        val json = Json { ignoreUnknownKeys = true }
+
+        val leftVal: Either<Int, String>? = Either.Left(42)
+        val rightVal: Either<Int, String>? = Either.Right("hello")
+        val nullVal: Either<Int, String>? = null
+
+        val encodedLeft = json.encodeToString(serializer, leftVal)
+        assertEquals("42", encodedLeft)
+        val decodedLeft = json.decodeFromString(serializer, encodedLeft)
+        assertEquals(leftVal, decodedLeft)
+
+        val encodedRight = json.encodeToString(serializer, rightVal)
+        assertEquals("\"hello\"", encodedRight)
+        val decodedRight = json.decodeFromString(serializer, encodedRight)
+        assertEquals(rightVal, decodedRight)
+
+        val encodedNull = json.encodeToString(serializer, nullVal)
+        assertEquals("null", encodedNull)
+        val decodedNull = json.decodeFromString(serializer, encodedNull)
+        assertNull(decodedNull)
+    }
+
+    @Test
     fun readWrite() {
         val mockData = ByteArray(256) { 0xff.toByte() }
         val reader: Either<ByteArray, ByteArray> = Either.Right(mockData)
-        val readBytes = when (reader) {
-            is Either.Left -> reader.value.take(16).toByteArray()
-            is Either.Right -> reader.value.take(16).toByteArray()
-        }
+        val readBytes =
+            when (reader) {
+                is Either.Left -> reader.value.take(16).toByteArray()
+                is Either.Right -> reader.value.take(16).toByteArray()
+            }
         assertEquals(16, readBytes.size)
         assertEquals(mockData.take(16), readBytes.toList())
 
         val mockBuf = ByteArray(256)
         val writer: Either<ByteArray, ByteArray> = Either.Right(mockBuf)
         val buf = ByteArray(16) { 1.toByte() }
-        val writtenBytes = when (writer) {
-            is Either.Left -> {
-                buf.copyInto(writer.value)
-                buf.size
+        val writtenBytes =
+            when (writer) {
+                is Either.Left -> {
+                    buf.copyInto(writer.value)
+                    buf.size
+                }
+
+                is Either.Right -> {
+                    buf.copyInto(writer.value)
+                    buf.size
+                }
             }
-            is Either.Right -> {
-                buf.copyInto(writer.value)
-                buf.size
-            }
-        }
         assertEquals(16, writtenBytes)
     }
 
@@ -328,10 +364,11 @@ class EitherTest {
     fun seek() {
         val mockData = ByteArray(256) { it.toByte() }
         val reader: Either<ByteArray, ByteArray> = Either.Right(mockData)
-        val buf = when (reader) {
-            is Either.Left -> reader.value.copyOfRange(0, 16)
-            is Either.Right -> reader.value.copyOfRange(0, 16)
-        }
+        val buf =
+            when (reader) {
+                is Either.Left -> reader.value.copyOfRange(0, 16)
+                is Either.Right -> reader.value.copyOfRange(0, 16)
+            }
         assertEquals(16, buf.size)
         assertEquals(mockData.take(16), buf.toList())
     }
