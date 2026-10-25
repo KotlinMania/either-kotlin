@@ -1,0 +1,6 @@
+DECLARATION-SCOPED SERDE DERIVE; not whole-file translation or production adoption
+selected enum=Either; variants=2; source_utf16=935..1469
+engines=proc-macro2-kotlin:0.1.7,syn-kotlin:0.4.0,serde-derive:0.1.12
+configuration=cfg_attr(feature="serde")=true
+TranslationProfile(pointerWidth=null, overflowChecks=null, panic=null, debugAssertions=null, cfgTest=null, cfgFeatures={serde=true})
+codec object and Serialize value wrapper require explicit Kotlin integration; other source declarations and derives are not emitted

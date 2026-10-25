@@ -1,0 +1,142 @@
+{
+  "status": "passed",
+  "observations": 25,
+  "cases": [
+    "first-success-wins",
+    "rust-variant-order-controls-precedence",
+    "right-after-scalar-failure",
+    "sequence-payload",
+    "map-payload",
+    "retry-after-partially-consumed-sequence",
+    "null-elements-do-not-end-sequence",
+    "empty-sequence",
+    "optional-none",
+    "optional-left",
+    "optional-right",
+    "untagged-error",
+    "optional-error",
+    "serialize-left-without-tag",
+    "serialize-right-without-tag",
+    "serialize-none",
+    "serialize-some",
+    "tagged-serialize-left",
+    "tagged-serialize-right",
+    "tagged-deserialize-name",
+    "tagged-deserialize-index",
+    "tagged-deserialize-bytes",
+    "tagged-invalid-index",
+    "generic-field-selects-its-parameter",
+    "generic-field-alias"
+  ],
+  "generator_sha256": "58192715ac6dfd9f9edd2df698d7ead9ece59489f920911f5880868cf4f601a3",
+  "source_sha256": {
+    "serde_untagged": "5f7a4035ca164125a433f42ac0949185d1732e2fcf5b1ac6dfca1e5aede439bb",
+    "serde_untagged_optional": "ba5d6c2213388b69e127e763b6e394de6388bdd682ffb5d5696b068f1938ec79",
+    "reordered": "38159be9d161dae48e5fa5a6537c4648162f9b61424599998232cbda4d4c12e8",
+    "tagged": "481ca250233811a5ccbff9a9fc7c2acb15287aede47d8ec280484fe5209e2ad7",
+    "generic": "0b7efe436173c21808d66adcabf1fa40ebd8a8ab70cd10f351ff2c7de6d3cc60"
+  },
+  "generated_sha256": {
+    "serde_untagged": "e50a3381cdab1c6f8e6363dcb0eb4ea6507ccb57d9b75b25dfc6237699276fdb",
+    "serde_untagged_optional": "c8f4579aaedd6738936637c85a92d2eb9a4ab5070ce529a80abee26eb201cefc",
+    "reordered": "ce6b25efdd6b6b25b0a59fadb4a58f787d987cf59310ad5333393a2dfd338390",
+    "tagged": "8494cc23f259c546fa01ff92da06f54ea6146834a9f6d9b185e91a4b08cf2d21",
+    "generic": "96b341910a58ffd5c78cc8e6ae6561a96e693f92ac865ddf6339becdd99aecc2"
+  },
+  "libraries": [
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/quote-kotlin-macosarm64/0.2.5/92b78014c314f5da1a2c204fafdf7d4e1ce8b701/quote-kotlin-macosArm64Main-0.2.5.klib",
+      "sha256": "9ecb94540e008e47f33cd4075690fa82cc3f2fec8653122850e75e23e2ae0a35"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/threadlocal-kotlin-macosarm64/0.3.3/f7fa46be3b5855168d3bbc67ff3233b00da01982/threadlocal-kotlin-macosArm64Main-0.3.3.klib",
+      "sha256": "0ae4442b20aba90d3a446c98db7b6e7223f70534fb091a20bae53b1d1712e585"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/unicode-ident-kotlin-macosarm64/0.1.1/2af6ecf48a6cc210f9f8cb2ee5cc711026fb37c/unicode-ident-kotlin-macosArm64Main-0.1.1.klib",
+      "sha256": "63f6f2bb0a3a9805ed22f174d7b79dc6aaefb09194e0ab7465c30b4dfb430caf"
+    },
+    {
+      "path": "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/token-copy-repair-tkw9djkt/libraries/proc-macro-kotlin.klib",
+      "sha256": "c65205884604b4ea55df80d3ee6a82c9a5acd0047c986b3f57cac0177e3af08b"
+    },
+    {
+      "path": "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-lexer-byte-access-01/proc-macro2-kotlin.klib",
+      "sha256": "d5bd7ad42359f7d67cf59bab511dda3f7bbb167aff8b1ecb571c8895fdd3841e"
+    },
+    {
+      "path": "/Volumes/stuff/Projects/kotlinmania/rust-kotlin/tmp/windows-string-macros-01/syn-delimiters.klib",
+      "sha256": "d6feaa5a5104bc8e1b7eb1593d51ae5e84385d786b028213b4c807d624036cdd"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/anyhow-kotlin-macosarm64/0.2.0/f4d2733cf5b56549a14981b858b4d80d44f24ec1/anyhow-kotlin-macosArm64Main-0.2.0.klib",
+      "sha256": "6b770cbbb03ed9da814a18456f9c648c919e8d7c007eccc98d616e42069357ff"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/getrandom-kotlin-macosarm64/0.2.0/9b3fb369cb6fe0ca0fa09b7e28a4b86d5d195863/getrandom-kotlin-macosArm64Main-0.2.0.klib",
+      "sha256": "22dfe4217710b49c5ba498553f72fab97fb2c4651bddc042243221d4848c2390"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/num-bigint-kotlin-macosarm64/0.1.2/26c8c4417ab26ed58a1c1abca5e34cc42056bbd8/num-bigint-kotlin-macosArm64Main-0.1.2.klib",
+      "sha256": "9b1c4cd1b37a4806186ffca10a80771d1e955e1a381460313fa4a34085f393b4"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/num-traits-kotlin-macosarm64/0.2.15/ea8d7d3d6bcd5c528a08a1abf72d01b99293dd02/num-traits-kotlin-macosArm64Main-0.2.15.klib",
+      "sha256": "1282b482f6b4608fdefc9e6e7540cba00fb95408bcd42c20e4c543c4fa0e3fb9"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/rand-kotlin-macosarm64/0.2.0/42d2d335c6690fa95f6b710aa15c66fd23f9cd1b/rand-kotlin-macosArm64Main-0.2.0.klib",
+      "sha256": "5675788be64e42b79cd9846a8c3f865d0415d1d80e786c0f6818beb81e127930"
+    },
+    {
+      "path": "/Users/sydney/.m2/repository/io/github/kotlinmania/serde-core-macosarm64/0.1.12/serde-core-macosarm64-0.1.12.klib",
+      "sha256": "2b98755fcbd58ebcfb6113051d1fa62da53a0c1c206dd1036973327f8cf8b285"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/io.github.kotlinmania/serde-derive-macosarm64/0.1.12/4e5c9be837557560a1f8200ffef3bd505debf62b/serde-derive-macosArm64Main-0.1.12.klib",
+      "sha256": "bf5fb2f38171b31a2f69be0b010783ae97a484c8a20e5006a56aa89906048162"
+    },
+    {
+      "path": "/Users/sydney/.m2/repository/io/github/kotlinmania/serde-kotlin-macosarm64/0.1.12/serde-kotlin-macosarm64-0.1.12.klib",
+      "sha256": "c4e30b815c27b27a215dc29e10a2399e3d96cc220d8ad5a222aa6f7121f38843"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-macosarm64/0.32.1/4a274f829f780c332d10ba8adaf076c5b251ca1/atomicfu-macosArm64Main-0.32.1.klib",
+      "sha256": "368865987bfa5da765e40b15b4df60fd12f257688ed65a96ca71ebf2cf1a5261"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-macosarm64/0.32.1/a6d990b552bf9396503f8318ae1188aa961de542/atomicfu-macosArm64Cinterop-interopMain-0.32.1.klib",
+      "sha256": "165c584c77f7c716cdc5a083093ef235c9bacfeabad6ed32ca9f7b928acbe292"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-collections-immutable-macosarm64/0.5.2/b09976aca9970c8c0a3808a4a6664000ec045c4a/kotlinx-collections-immutable-macosArm64Main-0.5.2.klib",
+      "sha256": "1792a1d25ff77dc7452e5685e3b56621fe65a61980d9f2e98d51e28aff2626e8"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-macosarm64/1.11.0/baededf132ba29f88ec444a7209692951f6bc020/kotlinx-coroutines-core-macosArm64Main-1.11.0.klib",
+      "sha256": "782a837c8593af70135378fb90b999cf0cb9880dc746619f64d6c5c224d014d0"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-datetime-macosarm64/0.8.0/35281d8b2dad073b4ede91fc70a699c0baeab910/kotlinx-datetime-macosArm64Main-0.8.0.klib",
+      "sha256": "175a07fd9150e167722ddd371e9eedd07411f9d40d884ddf12291d9477a23938"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-core-macosarm64/1.11.0/f22385c39763fb7c0cf6e129c511b811d18d224d/kotlinx-serialization-core-macosArm64Main-1.11.0.klib",
+      "sha256": "551d11833d5611afe63dac02c05dd21611fe5f43d002e014cbe61b380551e3e4"
+    },
+    {
+      "path": "/Users/sydney/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-serialization-json-macosarm64/1.11.0/4e81b4c063ba690bf3cbc23cd4e06291f44d865d/kotlinx-serialization-json-macosArm64Main-1.11.0.klib",
+      "sha256": "422eb1c46ccf299e35575cbca2227d23e8873d2da9ce86c5e968a7a3ddedcb2b"
+    },
+    {
+      "path": "/Users/sydney/.m2/repository/io/github/kotlinmania/serde-test-kotlin-macosarm64/0.1.2/serde-test-kotlin-macosarm64-0.1.2.klib",
+      "sha256": "427c3cbfd4396b29eefc03411c0f54a3165f0b1ee0d75e0867411a976f3b2241"
+    }
+  ],
+  "limits": [
+    "two complete admitted source modules plus two declaration-scoped generic codecs and a reordered fixture",
+    "explicit nominal Kotlin parent binding",
+    "Serde token protocol, not JSON integration",
+    "not production adoption or whole-crate coverage"
+  ]
+}

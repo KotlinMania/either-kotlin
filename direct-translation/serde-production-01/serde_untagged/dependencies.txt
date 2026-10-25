@@ -1,0 +1,1 @@
+io.github.kotlinmania:serde-kotlin:0.1.12 (requires UntaggedContent public engine adapter)

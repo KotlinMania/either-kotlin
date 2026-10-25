@@ -6,7 +6,17 @@ import io.github.kotlinmania.serdecore.de.StringDeserialize
 import io.github.kotlinmania.serdetest.Token
 import io.github.kotlinmania.serdetest.assertDeTokens
 import io.github.kotlinmania.serdetest.assertTokens
-import kotlinx.serialization.json.Json
+import io.github.kotlinmania.serde.SerdeResult
+import io.github.kotlinmania.serdecore.de.Deserialize
+import io.github.kotlinmania.serdecore.de.Deserializer
+import io.github.kotlinmania.serdecore.ser.Serialize
+import io.github.kotlinmania.serdecore.ser.Serializer
+import io.github.kotlinmania.serdejson.fromStr
+import io.github.kotlinmania.serdejson.toStr
+import io.github.kotlinmania.either.serdeuntagged.deserialize as decodeUntagged
+import io.github.kotlinmania.either.serdeuntagged.serialize as encodeUntagged
+import io.github.kotlinmania.either.serdeuntaggedoptional.deserialize as decodeOptional
+import io.github.kotlinmania.either.serdeuntaggedoptional.serialize as encodeOptional
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -291,7 +301,7 @@ class EitherTest {
                 Token.NewtypeVariant("Either", "Left"),
                 Token.I32(42),
             )
-        assertTokens(leftVal, eitherDeserialize(I32Deserialize, StringDeserialize), leftTokens)
+        assertTokens(leftVal, EitherSerde.decoder(I32Deserialize, StringDeserialize), leftTokens)
 
         val rightVal: Either<Int, String> = Either.Right("hello")
         val rightTokens =
@@ -299,80 +309,57 @@ class EitherTest {
                 Token.NewtypeVariant("Either", "Right"),
                 Token.Str("hello"),
             )
-        assertTokens(rightVal, eitherDeserialize(I32Deserialize, StringDeserialize), rightTokens)
+        assertTokens(rightVal, EitherSerde.decoder(I32Deserialize, StringDeserialize), rightTokens)
     }
 
     @Test
     fun testEitherSerdeUntagged() {
         val leftVal: Either<Int, String> = Either.Left(42)
-        assertDeTokens(leftVal, serdeUntaggedDeserialize(I32Deserialize, StringDeserialize), listOf(Token.I32(42)))
+        assertDeTokens(leftVal, untaggedDecoder(I32Deserialize, StringDeserialize), listOf(Token.I32(42)))
 
         val rightVal: Either<Int, String> = Either.Right("hello")
-        assertDeTokens(rightVal, serdeUntaggedDeserialize(I32Deserialize, StringDeserialize), listOf(Token.Str("hello")))
+        assertDeTokens(rightVal, untaggedDecoder(I32Deserialize, StringDeserialize), listOf(Token.Str("hello")))
     }
 
     @Test
     fun testEitherSerdeUntaggedOptional() {
         val leftVal: Either<Int, String>? = Either.Left(42)
-        assertDeTokens(leftVal, serdeUntaggedOptionalDeserialize(I32Deserialize, StringDeserialize), listOf(Token.Some, Token.I32(42)))
+        assertDeTokens(leftVal, optionalDecoder(I32Deserialize, StringDeserialize), listOf(Token.Some, Token.I32(42)))
 
         val rightVal: Either<Int, String>? = Either.Right("hello")
-        assertDeTokens(rightVal, serdeUntaggedOptionalDeserialize(I32Deserialize, StringDeserialize), listOf(Token.Some, Token.Str("hello")))
+        assertDeTokens(rightVal, optionalDecoder(I32Deserialize, StringDeserialize), listOf(Token.Some, Token.Str("hello")))
 
         val nullVal: Either<Int, String>? = null
-        assertDeTokens(nullVal, serdeUntaggedOptionalDeserialize(I32Deserialize, StringDeserialize), listOf(Token.None))
+        assertDeTokens(nullVal, optionalDecoder(I32Deserialize, StringDeserialize), listOf(Token.None))
     }
 
     @Test
     fun serdeUntaggedTest() {
-        val serializer =
-            UntaggedEitherSerializer(
-                leftSerializer = kotlinx.serialization.serializer<Int>(),
-                rightSerializer = kotlinx.serialization.serializer<String>(),
-            )
-        val json = Json { ignoreUnknownKeys = true }
-
+        val decoder = untaggedDecoder(I32Deserialize, StringDeserialize)
         val leftVal: Either<Int, String> = Either.Left(42)
         val rightVal: Either<Int, String> = Either.Right("hello")
-
-        val encodedLeft = json.encodeToString(serializer, leftVal)
+        val encodedLeft = toStr(untaggedValue(leftVal)).getOrThrow()
         assertEquals("42", encodedLeft)
-        val decodedLeft = json.decodeFromString(serializer, encodedLeft)
-        assertEquals(leftVal, decodedLeft)
-
-        val encodedRight = json.encodeToString(serializer, rightVal)
+        assertEquals(leftVal, fromStr(encodedLeft, decoder).getOrThrow())
+        val encodedRight = toStr(untaggedValue(rightVal)).getOrThrow()
         assertEquals("\"hello\"", encodedRight)
-        val decodedRight = json.decodeFromString(serializer, encodedRight)
-        assertEquals(rightVal, decodedRight)
+        assertEquals(rightVal, fromStr(encodedRight, decoder).getOrThrow())
     }
 
     @Test
     fun serdeUntaggedOptionalTest() {
-        val serializer =
-            UntaggedOptionalEitherSerializer(
-                leftSerializer = kotlinx.serialization.serializer<Int>(),
-                rightSerializer = kotlinx.serialization.serializer<String>(),
-            )
-        val json = Json { ignoreUnknownKeys = true }
-
+        val decoder = optionalDecoder(I32Deserialize, StringDeserialize)
         val leftVal: Either<Int, String>? = Either.Left(42)
         val rightVal: Either<Int, String>? = Either.Right("hello")
-        val nullVal: Either<Int, String>? = null
-
-        val encodedLeft = json.encodeToString(serializer, leftVal)
+        val encodedLeft = toStr(optionalValue(leftVal)).getOrThrow()
         assertEquals("42", encodedLeft)
-        val decodedLeft = json.decodeFromString(serializer, encodedLeft)
-        assertEquals(leftVal, decodedLeft)
-
-        val encodedRight = json.encodeToString(serializer, rightVal)
+        assertEquals(leftVal, fromStr(encodedLeft, decoder).getOrThrow())
+        val encodedRight = toStr(optionalValue(rightVal)).getOrThrow()
         assertEquals("\"hello\"", encodedRight)
-        val decodedRight = json.decodeFromString(serializer, encodedRight)
-        assertEquals(rightVal, decodedRight)
-
-        val encodedNull = json.encodeToString(serializer, nullVal)
+        assertEquals(rightVal, fromStr(encodedRight, decoder).getOrThrow())
+        val encodedNull = toStr(optionalValue(null)).getOrThrow()
         assertEquals("null", encodedNull)
-        val decodedNull = json.decodeFromString(serializer, encodedNull)
-        assertNull(decodedNull)
+        assertNull(fromStr(encodedNull, decoder).getOrThrow())
     }
 
     @Test
@@ -434,4 +421,30 @@ class IntoEitherTest {
         assertEquals(Either.Left(0), 0.intoEitherWith { isEven(it) })
         assertEquals(Either.Right(1), 1.intoEitherWith { isEven(it) })
     }
+}
+
+private fun <L,R> untaggedDecoder(left: Deserialize<L>, right: Deserialize<R>): Deserialize<Either<L,R>> =
+    object : Deserialize<Either<L,R>> {
+        override fun <D : Deserializer> deserialize(deserializer: D) = decodeUntagged(deserializer, left, right)
+    }
+
+private fun <L,R> optionalDecoder(left: Deserialize<L>, right: Deserialize<R>): Deserialize<Either<L,R>?> =
+    object : Deserialize<Either<L,R>?> {
+        override fun <D : Deserializer> deserialize(deserializer: D) = decodeOptional(deserializer, left, right)
+    }
+
+private fun intValue(value: Int): Serialize = object : Serialize {
+    override fun <Ok> serialize(serializer: Serializer<Ok>) = serializer.serializeI32(value)
+}
+
+private fun stringValue(value: String): Serialize = object : Serialize {
+    override fun <Ok> serialize(serializer: Serializer<Ok>) = serializer.serializeStr(value)
+}
+
+private fun untaggedValue(value: Either<Int,String>): Serialize = object : Serialize {
+    override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> = encodeUntagged(value, serializer, ::intValue, ::stringValue)
+}
+
+private fun optionalValue(value: Either<Int,String>?): Serialize = object : Serialize {
+    override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> = encodeOptional(value, serializer, ::intValue, ::stringValue)
 }

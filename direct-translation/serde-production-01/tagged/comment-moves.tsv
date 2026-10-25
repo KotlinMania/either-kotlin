@@ -1,0 +1,9 @@
+source_utf16_start	source_utf16_end	generated_anchor
+935	1010	codec
+1011	1039	codec
+1040	1043	codec
+1044	1124	codec
+1125	1140	codec
+1141	1220	codec
+1387	1411	serialize:Left
+1429	1453	serialize:Right

@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "raw": "direct-translation/serde-production-01/serde_untagged/generated.kt",
+      "adopted": "src/commonMain/kotlin/io/github/kotlinmania/either/serdeuntagged/SerdeUntagged.kt",
+      "sha256": "fbfd65c5b74f0548c20fe6616e8e82e1b84097cc0c720d11aa255f7c163ffc90"
+    },
+    {
+      "raw": "direct-translation/serde-production-01/serde_untagged_optional/generated.kt",
+      "adopted": "src/commonMain/kotlin/io/github/kotlinmania/either/serdeuntaggedoptional/SerdeUntaggedOptional.kt",
+      "sha256": "db7ee556259f6d2402607f5a1e3a0cf1a0be57ebd6a7171ac73bb2dc7b810aa4"
+    },
+    {
+      "raw": "direct-translation/serde-production-01/tagged/generated.kt",
+      "adopted": "src/commonMain/kotlin/io/github/kotlinmania/either/EitherSerde.kt",
+      "sha256": "7204b6334065ca39be9a8b88150b59349af4c29faaa9111827afa940c7171670"
+    }
+  ],
+  "status": "adopted byte-for-byte; JVM/macOS production compile and Rust protocol check passed; full suite blocked on serde-json 0.2.0",
+  "parent_compatibility": "Existing Serialize entry point delegates to generated codec through retained wrapSerialize adapter; not a claim of Rust generic trait-bound equivalence",
+  "validation": {
+    "production_compile": "../../automation-artifacts/2026-10-25-either-repair/either-production-compile-01.log",
+    "production_protocol": "../serde-production-check-01/validation.json",
+    "observations": 25,
+    "compatibility_checks": 2,
+    "full_test_suite": "dependency resolution blocked; tests not run"
+  }
+}

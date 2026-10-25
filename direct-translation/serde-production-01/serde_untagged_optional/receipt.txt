@@ -1,0 +1,4 @@
+COMPLETE ADMITTED SERDE MODULE; validation and adoption are separate
+items=4; package=io.github.kotlinmania.either.serdeuntaggedoptional; explicit parent type binding=super::Either -> io.github.kotlinmania.either.Either
+engines=proc-macro2-kotlin:0.1.7,syn-kotlin:0.4.0,serde-derive:0.1.12
+Rust Serialize/Deserialize type bounds become explicit payload encoder/decoder parameters; helper enum remains private
