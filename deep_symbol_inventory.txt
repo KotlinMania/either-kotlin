@@ -1,0 +1,309 @@
+
+=== Complete Source Symbol Inventory ===
+Types, API declarations, functions, properties/constants, enum variants and aliases.
+Name/owner presence is distinct from parameter/body/overload parity reported above. Parser warnings remain review requirements.
+PRESENT type IntoEither at ./tmp/either/src/into_either.rs:14 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/IntoEither.kt:8
+DECLARATION_ONLY function IntoEither::into_either at ./tmp/either/src/into_either.rs:29 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/IntoEither.kt:13
+DECLARATION_ONLY function IntoEither::into_either_with at ./tmp/either/src/into_either.rs:55 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/IntoEither.kt:19
+EXTRA_TARGET_SYMBOL function intoEither at ./src/commonMain/kotlin/io/github/kotlinmania/either/IntoEither.kt:26
+EXTRA_TARGET_SYMBOL function intoEitherWith at ./src/commonMain/kotlin/io/github/kotlinmania/either/IntoEither.kt:33
+PRESENT type IterEither at ./tmp/either/src/iterator.rs:19 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:9
+MISSING_SYMBOL function new at ./tmp/either/src/iterator.rs:24
+MISSING_SYMBOL function extend at ./tmp/either/src/iterator.rs:34
+MISSING_SYMBOL type_alias Item at ./tmp/either/src/iterator.rs:48
+MISSING_SYMBOL function next at ./tmp/either/src/iterator.rs:50
+MISSING_SYMBOL function size_hint at ./tmp/either/src/iterator.rs:54
+MISSING_SYMBOL function fold at ./tmp/either/src/iterator.rs:58
+MISSING_SYMBOL function for_each at ./tmp/either/src/iterator.rs:65
+MISSING_SYMBOL function count at ./tmp/either/src/iterator.rs:72
+MISSING_SYMBOL function last at ./tmp/either/src/iterator.rs:76
+MISSING_SYMBOL function nth at ./tmp/either/src/iterator.rs:80
+MISSING_SYMBOL function collect at ./tmp/either/src/iterator.rs:84
+MISSING_SYMBOL function partition at ./tmp/either/src/iterator.rs:91
+MISSING_SYMBOL function all at ./tmp/either/src/iterator.rs:99
+MISSING_SYMBOL function any at ./tmp/either/src/iterator.rs:106
+MISSING_SYMBOL function find at ./tmp/either/src/iterator.rs:113
+MISSING_SYMBOL function find_map at ./tmp/either/src/iterator.rs:120
+MISSING_SYMBOL function position at ./tmp/either/src/iterator.rs:127
+MISSING_SYMBOL function next_back at ./tmp/either/src/iterator.rs:140
+MISSING_SYMBOL function nth_back at ./tmp/either/src/iterator.rs:144
+MISSING_SYMBOL function rfold at ./tmp/either/src/iterator.rs:148
+MISSING_SYMBOL function rfind at ./tmp/either/src/iterator.rs:155
+MISSING_SYMBOL function len at ./tmp/either/src/iterator.rs:168
+MISSING_SYMBOL type_alias Item at ./tmp/either/src/iterator.rs:185
+MISSING_SYMBOL function next at ./tmp/either/src/iterator.rs:187
+MISSING_SYMBOL function size_hint at ./tmp/either/src/iterator.rs:191
+MISSING_SYMBOL function fold at ./tmp/either/src/iterator.rs:195
+MISSING_SYMBOL function for_each at ./tmp/either/src/iterator.rs:202
+MISSING_SYMBOL function count at ./tmp/either/src/iterator.rs:209
+MISSING_SYMBOL function last at ./tmp/either/src/iterator.rs:213
+MISSING_SYMBOL function nth at ./tmp/either/src/iterator.rs:217
+MISSING_SYMBOL function collect at ./tmp/either/src/iterator.rs:221
+MISSING_SYMBOL function partition at ./tmp/either/src/iterator.rs:228
+MISSING_SYMBOL function all at ./tmp/either/src/iterator.rs:236
+MISSING_SYMBOL function any at ./tmp/either/src/iterator.rs:243
+MISSING_SYMBOL function find at ./tmp/either/src/iterator.rs:250
+MISSING_SYMBOL function find_map at ./tmp/either/src/iterator.rs:257
+MISSING_SYMBOL function position at ./tmp/either/src/iterator.rs:264
+MISSING_SYMBOL function next_back at ./tmp/either/src/iterator.rs:277
+MISSING_SYMBOL function nth_back at ./tmp/either/src/iterator.rs:281
+MISSING_SYMBOL function rfold at ./tmp/either/src/iterator.rs:285
+MISSING_SYMBOL function rfind at ./tmp/either/src/iterator.rs:292
+MISSING_SYMBOL function len at ./tmp/either/src/iterator.rs:305
+EXTRA_TARGET_SYMBOL property IterEither::inner at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:10
+EXTRA_TARGET_SYMBOL function IterEither::Companion::new at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:17
+EXTRA_TARGET_SYMBOL function IterEither::iterator at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:21
+EXTRA_TARGET_SYMBOL function IterEither::hasNext at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:23
+EXTRA_TARGET_SYMBOL function IterEither::next at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:29
+EXTRA_TARGET_SYMBOL function IterEither::sizeHint at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:40
+EXTRA_TARGET_SYMBOL function IterEither::fold at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:45
+EXTRA_TARGET_SYMBOL function IterEither::forEach at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:56
+EXTRA_TARGET_SYMBOL function IterEither::count at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:65
+EXTRA_TARGET_SYMBOL function IterEither::last at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:77
+EXTRA_TARGET_SYMBOL function IterEither::nth at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:88
+EXTRA_TARGET_SYMBOL function IterEither::collect at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:101
+EXTRA_TARGET_SYMBOL function IterEither::partition at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:112
+EXTRA_TARGET_SYMBOL function IterEither::all at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:129
+EXTRA_TARGET_SYMBOL function IterEither::any at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:139
+EXTRA_TARGET_SYMBOL function IterEither::find at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:149
+EXTRA_TARGET_SYMBOL function IterEither::findMap at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:160
+EXTRA_TARGET_SYMBOL function IterEither::position at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:171
+EXTRA_TARGET_SYMBOL function IterEither::len at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:183
+EXTRA_TARGET_SYMBOL function IterEither::nextBack at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:188
+EXTRA_TARGET_SYMBOL function IterEither::nthBack at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:193
+EXTRA_TARGET_SYMBOL function IterEither::rfold at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:198
+EXTRA_TARGET_SYMBOL function IterEither::rfind at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:204
+EXTRA_TARGET_SYMBOL function IterEither::extend at ./src/commonMain/kotlin/io/github/kotlinmania/either/IterEither.kt:210
+PRESENT type Either at ./tmp/either/src/lib.rs:49 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:33
+MISSING_SYMBOL enum_variant Either::Left at ./tmp/either/src/lib.rs:51
+MISSING_SYMBOL enum_variant Either::Right at ./tmp/either/src/lib.rs:53
+PRESENT function clone at ./tmp/either/src/lib.rs:214 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:752
+PRESENT function clone_from at ./tmp/either/src/lib.rs:221 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:757
+PRESENT function is_left at ./tmp/either/src/lib.rs:240 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:262
+PRESENT function is_left_and at ./tmp/either/src/lib.rs:262 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:267
+PRESENT function is_right_and at ./tmp/either/src/lib.rs:287 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:276
+PRESENT function is_right at ./tmp/either/src/lib.rs:306 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:285
+PRESENT function left at ./tmp/either/src/lib.rs:321 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:290
+PRESENT function right at ./tmp/either/src/lib.rs:339 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:299
+PRESENT function as_ref at ./tmp/either/src/lib.rs:357 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:318
+PRESENT function as_mut at ./tmp/either/src/lib.rs:379 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:336
+PRESENT function as_pin_ref at ./tmp/either/src/lib.rs:385 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:341
+PRESENT function as_pin_mut at ./tmp/either/src/lib.rs:393 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:346
+PRESENT function flip at ./tmp/either/src/lib.rs:413 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:351
+PRESENT function map_left at ./tmp/either/src/lib.rs:432 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:360
+PRESENT function map_right at ./tmp/either/src/lib.rs:454 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:369
+PRESENT function map_left_or at ./tmp/either/src/lib.rs:478 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:378
+PRESENT function map_right_or at ./tmp/either/src/lib.rs:502 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:387
+PRESENT function map_either at ./tmp/either/src/lib.rs:529 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:396
+PRESENT function map_either_with at ./tmp/either/src/lib.rs:560 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:405
+PRESENT function either at ./tmp/either/src/lib.rs:587 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:418
+PRESENT function either_with at ./tmp/either/src/lib.rs:617 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:427
+PRESENT function left_and at ./tmp/either/src/lib.rs:649 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:440
+PRESENT function right_and at ./tmp/either/src/lib.rs:677 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:449
+PRESENT function left_and_then at ./tmp/either/src/lib.rs:695 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:458
+PRESENT function right_and_then at ./tmp/either/src/lib.rs:716 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:467
+PRESENT function into_iter at ./tmp/either/src/lib.rs:740 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:600
+PRESENT function iter at ./tmp/either/src/lib.rs:763 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:615
+PRESENT function iter_mut at ./tmp/either/src/lib.rs:792 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:626
+PRESENT function factor_into_iter at ./tmp/either/src/lib.rs:816 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:638
+PRESENT function factor_iter at ./tmp/either/src/lib.rs:838 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:651
+PRESENT function factor_iter_mut at ./tmp/either/src/lib.rs:864 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:664
+PRESENT function left_or at ./tmp/either/src/lib.rs:890 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:476
+PRESENT function left_or_default at ./tmp/either/src/lib.rs:909 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:485
+PRESENT function left_or_else at ./tmp/either/src/lib.rs:931 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:494
+PRESENT function right_or at ./tmp/either/src/lib.rs:957 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:503
+PRESENT function right_or_default at ./tmp/either/src/lib.rs:976 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:512
+PRESENT function right_or_else at ./tmp/either/src/lib.rs:998 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:521
+PRESENT function unwrap_left at ./tmp/either/src/lib.rs:1028 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:530
+PRESENT function unwrap_right at ./tmp/either/src/lib.rs:1060 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:539
+PRESENT function expect_left at ./tmp/either/src/lib.rs:1090 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:548
+PRESENT function expect_right at ./tmp/either/src/lib.rs:1120 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:557
+PRESENT function inspect_left at ./tmp/either/src/lib.rs:1144 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:566
+PRESENT function inspect_right at ./tmp/either/src/lib.rs:1169 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:574
+PRESENT function either_into at ./tmp/either/src/lib.rs:1192 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:582
+PRESENT function factor_none at ./tmp/either/src/lib.rs:1213 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:671
+PRESENT function factor_err at ./tmp/either/src/lib.rs:1235 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:680
+PRESENT function factor_ok at ./tmp/either/src/lib.rs:1257 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:689
+PRESENT function factor_first at ./tmp/either/src/lib.rs:1278 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:698
+PRESENT function factor_second at ./tmp/either/src/lib.rs:1299 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:707
+PRESENT function into_inner at ./tmp/either/src/lib.rs:1319 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:716
+PRESENT function map at ./tmp/either/src/lib.rs:1334 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:725
+PRESENT function cloned at ./tmp/either/src/lib.rs:1345 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:734
+PRESENT function copied at ./tmp/either/src/lib.rs:1355 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:743
+PRESENT function cloned at ./tmp/either/src/lib.rs:1367 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:734
+PRESENT function copied at ./tmp/either/src/lib.rs:1377 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:743
+PRESENT function from at ./tmp/either/src/lib.rs:1388 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:762
+PRESENT function from at ./tmp/either/src/lib.rs:1398 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:762
+MISSING_SYMBOL type_alias Output at ./tmp/either/src/lib.rs:1412
+MISSING_SYMBOL function poll at ./tmp/either/src/lib.rs:1414
+MISSING_SYMBOL function read at ./tmp/either/src/lib.rs:1431
+MISSING_SYMBOL function read_exact at ./tmp/either/src/lib.rs:1435
+MISSING_SYMBOL function read_to_end at ./tmp/either/src/lib.rs:1439
+MISSING_SYMBOL function read_to_string at ./tmp/either/src/lib.rs:1443
+MISSING_SYMBOL function seek at ./tmp/either/src/lib.rs:1457
+MISSING_SYMBOL function fill_buf at ./tmp/either/src/lib.rs:1469
+MISSING_SYMBOL function consume at ./tmp/either/src/lib.rs:1473
+MISSING_SYMBOL function read_until at ./tmp/either/src/lib.rs:1477
+MISSING_SYMBOL function read_line at ./tmp/either/src/lib.rs:1481
+MISSING_SYMBOL function write at ./tmp/either/src/lib.rs:1495
+MISSING_SYMBOL function write_all at ./tmp/either/src/lib.rs:1499
+MISSING_SYMBOL function write_fmt at ./tmp/either/src/lib.rs:1503
+MISSING_SYMBOL function flush at ./tmp/either/src/lib.rs:1507
+PRESENT function as_ref at ./tmp/either/src/lib.rs:1517 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:318
+PRESENT function as_ref at ./tmp/either/src/lib.rs:1566 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:318
+PRESENT function as_mut at ./tmp/either/src/lib.rs:1576 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:336
+PRESENT function as_mut at ./tmp/either/src/lib.rs:1586 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:336
+MISSING_SYMBOL type_alias Target at ./tmp/either/src/lib.rs:1596
+MISSING_SYMBOL function deref at ./tmp/either/src/lib.rs:1598
+MISSING_SYMBOL function deref_mut at ./tmp/either/src/lib.rs:1608
+MISSING_SYMBOL function source at ./tmp/either/src/lib.rs:1622
+MISSING_SYMBOL function description at ./tmp/either/src/lib.rs:1627
+MISSING_SYMBOL function cause at ./tmp/either/src/lib.rs:1632
+MISSING_SYMBOL function fmt at ./tmp/either/src/lib.rs:1642
+MISSING_SYMBOL function write_str at ./tmp/either/src/lib.rs:1652
+MISSING_SYMBOL function write_char at ./tmp/either/src/lib.rs:1656
+MISSING_SYMBOL function write_fmt at ./tmp/either/src/lib.rs:1660
+MISSING_SYMBOL function basic at ./tmp/either/src/lib.rs:1666
+MISSING_SYMBOL function macros at ./tmp/either/src/lib.rs:1679
+MISSING_SYMBOL function deref at ./tmp/either/src/lib.rs:1695
+PRESENT function iter at ./tmp/either/src/lib.rs:1704 -> ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:615
+MISSING_SYMBOL function seek at ./tmp/either/src/lib.rs:1716
+MISSING_SYMBOL function read_write at ./tmp/either/src/lib.rs:1747
+MISSING_SYMBOL function error at ./tmp/either/src/lib.rs:1775
+MISSING_SYMBOL function _unsized_ref_propagation at ./tmp/either/src/lib.rs:1805
+MISSING_SYMBOL function _unsized_std_propagation at ./tmp/either/src/lib.rs:1822
+EXTRA_TARGET_SYMBOL type Either::Left at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:38
+EXTRA_TARGET_SYMBOL property Either::Left::value at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:41
+EXTRA_TARGET_SYMBOL function Either::Left::toString at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:43
+EXTRA_TARGET_SYMBOL type Either::Right at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:49
+EXTRA_TARGET_SYMBOL property Either::Right::value at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:52
+EXTRA_TARGET_SYMBOL function Either::Right::toString at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:54
+EXTRA_TARGET_SYMBOL function Either::serialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:57
+EXTRA_TARGET_SYMBOL function wrapSerialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:64
+EXTRA_TARGET_SYMBOL type EitherVisitor at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:194
+EXTRA_TARGET_SYMBOL property EitherVisitor::leftDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:195
+EXTRA_TARGET_SYMBOL property EitherVisitor::rightDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:196
+EXTRA_TARGET_SYMBOL function EitherVisitor::expecting at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:198
+EXTRA_TARGET_SYMBOL function EitherVisitor::visitEnum at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:200
+EXTRA_TARGET_SYMBOL type EitherFieldVisitor at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:211
+EXTRA_TARGET_SYMBOL function EitherFieldVisitor::expecting at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:212
+EXTRA_TARGET_SYMBOL function EitherFieldVisitor::visitU64 at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:214
+EXTRA_TARGET_SYMBOL function EitherFieldVisitor::visitStr at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:221
+EXTRA_TARGET_SYMBOL function EitherFieldVisitor::visitBytes at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:227
+EXTRA_TARGET_SYMBOL type EitherFieldDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:238
+EXTRA_TARGET_SYMBOL function EitherFieldDeserialize::deserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:239
+EXTRA_TARGET_SYMBOL type SeedFromDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:243
+EXTRA_TARGET_SYMBOL property SeedFromDeserialize::deserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:244
+EXTRA_TARGET_SYMBOL function SeedFromDeserialize::deserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:246
+EXTRA_TARGET_SYMBOL function eitherDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:250
+EXTRA_TARGET_SYMBOL function asLeft at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:308
+EXTRA_TARGET_SYMBOL function asRight at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:313
+EXTRA_TARGET_SYMBOL function asRefRight at ./src/commonMain/kotlin/io/github/kotlinmania/either/Either.kt:327
+EXTRA_TARGET_SYMBOL type EitherTest at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:16
+EXTRA_TARGET_SYMBOL function EitherTest::basic at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:17
+EXTRA_TARGET_SYMBOL function EitherTest::macros at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:29
+EXTRA_TARGET_SYMBOL function EitherTest::deref at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:54
+EXTRA_TARGET_SYMBOL function EitherTest::iter at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:66
+EXTRA_TARGET_SYMBOL function EitherTest::isLeftAndIsRight at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:86
+EXTRA_TARGET_SYMBOL function EitherTest::isLeftAnd at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:96
+EXTRA_TARGET_SYMBOL function EitherTest::isRightAnd at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:106
+EXTRA_TARGET_SYMBOL function EitherTest::leftAndRight at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:116
+EXTRA_TARGET_SYMBOL function EitherTest::flip at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:126
+EXTRA_TARGET_SYMBOL function EitherTest::mapLeft at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:134
+EXTRA_TARGET_SYMBOL function EitherTest::mapRight at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:142
+EXTRA_TARGET_SYMBOL function EitherTest::mapEither at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:150
+EXTRA_TARGET_SYMBOL function EitherTest::either at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:158
+EXTRA_TARGET_SYMBOL function EitherTest::leftAnd at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:166
+EXTRA_TARGET_SYMBOL function EitherTest::rightAnd at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:175
+EXTRA_TARGET_SYMBOL function EitherTest::leftAndThen at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:184
+EXTRA_TARGET_SYMBOL function EitherTest::rightAndThen at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:192
+EXTRA_TARGET_SYMBOL function EitherTest::leftOrDefaultAndRightOrDefault at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:200
+EXTRA_TARGET_SYMBOL function EitherTest::leftOrElseAndRightOrElse at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:208
+EXTRA_TARGET_SYMBOL function EitherTest::unwrapLeftAndExpectLeft at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:217
+EXTRA_TARGET_SYMBOL function EitherTest::unwrapRightAndExpectRight at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:224
+EXTRA_TARGET_SYMBOL function EitherTest::inspectLeftAndInspectRight at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:231
+EXTRA_TARGET_SYMBOL function EitherTest::flipAndIntoInner at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:245
+EXTRA_TARGET_SYMBOL function EitherTest::factorNone at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:253
+EXTRA_TARGET_SYMBOL function EitherTest::factorFirstAndFactorSecond at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:265
+EXTRA_TARGET_SYMBOL function EitherTest::error at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:278
+EXTRA_TARGET_SYMBOL function EitherTest::testEitherSerde at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:286
+EXTRA_TARGET_SYMBOL function EitherTest::testEitherSerdeUntagged at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:305
+EXTRA_TARGET_SYMBOL function EitherTest::testEitherSerdeUntaggedOptional at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:314
+EXTRA_TARGET_SYMBOL function EitherTest::serdeUntaggedTest at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:326
+EXTRA_TARGET_SYMBOL function EitherTest::serdeUntaggedOptionalTest at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:349
+EXTRA_TARGET_SYMBOL function EitherTest::readWrite at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:378
+EXTRA_TARGET_SYMBOL function EitherTest::seek at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:408
+EXTRA_TARGET_SYMBOL type IntoEitherTest at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:422
+EXTRA_TARGET_SYMBOL function IntoEitherTest::intoEither at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:423
+EXTRA_TARGET_SYMBOL function IntoEitherTest::intoEitherWith at ./src/commonTest/kotlin/io/github/kotlinmania/either/EitherTest.kt:430
+MISSING_SYMBOL type Either at ./tmp/either/src/serde_untagged.rs:40
+MISSING_SYMBOL enum_variant Either::Left at ./tmp/either/src/serde_untagged.rs:41
+MISSING_SYMBOL enum_variant Either::Right at ./tmp/either/src/serde_untagged.rs:42
+MISSING_SYMBOL function serialize at ./tmp/either/src/serde_untagged.rs:45
+MISSING_SYMBOL function deserialize at ./tmp/either/src/serde_untagged.rs:58
+EXTRA_TARGET_SYMBOL function serdeUntaggedSerialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:23
+EXTRA_TARGET_SYMBOL function serdeUntaggedDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:32
+EXTRA_TARGET_SYMBOL type UntaggedEitherVisitor at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:43
+EXTRA_TARGET_SYMBOL property UntaggedEitherVisitor::leftDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:44
+EXTRA_TARGET_SYMBOL property UntaggedEitherVisitor::rightDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:45
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::expecting at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:47
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::tryBoth at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:49
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitBool at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:61
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitI8 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:63
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitI16 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:65
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitI32 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:67
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitI64 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:69
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitU8 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:71
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitU16 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:73
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitU32 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:75
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitU64 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:77
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitF32 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:79
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitF64 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:81
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitChar at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:83
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitStr at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:85
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitString at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:87
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitBytes at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:89
+EXTRA_TARGET_SYMBOL function UntaggedEitherVisitor::visitUnit at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:91
+EXTRA_TARGET_SYMBOL type UntaggedEitherSerializer at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:104
+EXTRA_TARGET_SYMBOL property UntaggedEitherSerializer::leftSerializer at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:106
+EXTRA_TARGET_SYMBOL property UntaggedEitherSerializer::rightSerializer at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:107
+EXTRA_TARGET_SYMBOL property UntaggedEitherSerializer::descriptor at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:109
+EXTRA_TARGET_SYMBOL function UntaggedEitherSerializer::serialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:112
+EXTRA_TARGET_SYMBOL function UntaggedEitherSerializer::deserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntagged.kt:119
+MISSING_SYMBOL type Either at ./tmp/either/src/serde_untagged_optional.rs:40
+MISSING_SYMBOL enum_variant Either::Left at ./tmp/either/src/serde_untagged_optional.rs:41
+MISSING_SYMBOL enum_variant Either::Right at ./tmp/either/src/serde_untagged_optional.rs:42
+MISSING_SYMBOL function serialize at ./tmp/either/src/serde_untagged_optional.rs:45
+MISSING_SYMBOL function deserialize at ./tmp/either/src/serde_untagged_optional.rs:62
+EXTRA_TARGET_SYMBOL function serdeUntaggedOptionalSerialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:25
+EXTRA_TARGET_SYMBOL function serdeUntaggedOptionalDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:38
+EXTRA_TARGET_SYMBOL type UntaggedOptionalEitherVisitor at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:49
+EXTRA_TARGET_SYMBOL property UntaggedOptionalEitherVisitor::leftDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:50
+EXTRA_TARGET_SYMBOL property UntaggedOptionalEitherVisitor::rightDeserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:51
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::expecting at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:53
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitNone at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:55
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitUnit at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:57
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitSome at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:59
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::tryBoth at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:64
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitBool at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:76
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitI8 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:78
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitI16 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:80
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitI32 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:82
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitI64 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:84
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitU8 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:86
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitU16 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:88
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitU32 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:90
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitU64 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:92
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitF32 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:94
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitF64 at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:96
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitChar at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:98
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitStr at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:100
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitString at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:102
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherVisitor::visitBytes at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:104
+EXTRA_TARGET_SYMBOL type UntaggedOptionalEitherSerializer at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:117
+EXTRA_TARGET_SYMBOL property UntaggedOptionalEitherSerializer::leftSerializer at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:119
+EXTRA_TARGET_SYMBOL property UntaggedOptionalEitherSerializer::rightSerializer at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:120
+EXTRA_TARGET_SYMBOL property UntaggedOptionalEitherSerializer::descriptor at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:122
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherSerializer::serialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:125
+EXTRA_TARGET_SYMBOL function UntaggedOptionalEitherSerializer::deserialize at ./src/commonMain/kotlin/io/github/kotlinmania/either/SerdeUntaggedOptional.kt:137
+Inventory totals: present=65, declaration_only=2, missing=87
