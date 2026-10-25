@@ -19,9 +19,10 @@ Validation:
 - `serde-production-check-01/validation.json`: those 25 observations also agree
   against the actual production Either KLIB; two legacy Serialize checks pass.
 - Normal offline JVM and macOS production compilation passes.
-- Full JVM/macOS tests, including migrated JSON roundtrips, are blocked on local
-  publication of Serde JSON 0.2.0 and its IndexMap 0.1.5 prerequisite. They have
-  not passed yet. Other targets remain unverified.
+- Full JVM/macOS tests, including migrated JSON roundtrips, now pass: 35 tests
+  per platform, zero failures/skips, using local Serde JSON 0.2.0 and IndexMap
+  0.1.5. Receipt: `serde-production-check-01/full-tests-after-json.json`.
+  Other platform runtimes remain unverified.
 
 The generator design and reproducible checks live in `../../rust-kotlin`:
 `docs/either-serde-modules.md`, `tools/check_serde_modules.py`, and
