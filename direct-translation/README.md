@@ -33,3 +33,34 @@ Known formatting limitation: the module emitter leaves whitespace on blank lines
 and an extra final blank line. Raw and adopted files deliberately remain identical;
 `git diff --check` flags these lines. Fix this in the emitter in a later increment,
 not by hand-editing the adopted output. This does not affect the compile/protocol results.
+
+## Local publication dependency repair
+
+The Rust manifests distinguish library and development dependencies:
+
+| Consumer | Dependency | Rust scope |
+| --- | --- | --- |
+| Either | serde_json | development/tests only |
+| Itertools | Either | library |
+| IndexMap | Itertools | development/tests only |
+| Serde JSON | IndexMap | optional library dependency for `preserve_order` |
+
+The Kotlin Serde JSON port currently always uses IndexMap, so removing that
+edge without implementing feature selection would change the implementation.
+Either's JSON tests use the source-declared dependency and must remain intact.
+
+A forced `kotlinUpgradeYarnLock` dependency on main JS/Wasm compilation/resource
+tasks caused publication to resolve `jsTestNpmAggregated`. Remove those artificial
+main-task edges; retain the lock setup for tests. The ordinary offline
+`publishToMavenLocal` then succeeds while Serde JSON 0.2.0 is still unavailable.
+The JS test dry run continues to require Serde JSON, verifying tests were not
+silently disabled. Published POMs contain no test-only dependencies.
+
+Either's current public Kotlin API exposes Serde types. Its existing Serde
+dependency therefore belongs in the commonMain **API** bundle, not the private
+implementation bundle. An Itertools consumer compile exposed this metadata bug;
+consumers should not need a direct Serde dependency to compensate. This corrects
+publication metadata, not the documented conditional-trait adaptation.
+
+Evidence is retained in
+`../../automation-artifacts/2026-10-25-serde-dependency-cycle/`.

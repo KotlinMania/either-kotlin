@@ -33,6 +33,8 @@ either-commonMain = [
   "kotlinx-coroutines-core",
   "kotlinx-datetime",
   "collections-immutable",
+]
+either-commonMainApi = [
   "serde-kotlin",
 ]
 either-commonTest = [
