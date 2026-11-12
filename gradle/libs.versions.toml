@@ -13,6 +13,8 @@ serde = "0.1.12"
 serdeTest = "0.1.2"
 serdeJson = "0.2.0"
 
+androidxTestRunner = "1.7.0"
+
 [plugins]
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "androidKmp" }
@@ -33,6 +35,8 @@ collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-im
 serde-kotlin = { module = "io.github.kotlinmania:serde-kotlin", version.ref = "serde" }
 serde-test-kotlin = { module = "io.github.kotlinmania:serde-test-kotlin", version.ref = "serdeTest" }
 serde-json-kotlin = { module = "io.github.kotlinmania:serde-json-kotlin", version.ref = "serdeJson" }
+
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTestRunner" }
 
 [bundles]
 either-commonMain = [
