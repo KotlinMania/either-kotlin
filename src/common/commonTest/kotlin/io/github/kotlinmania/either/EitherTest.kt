@@ -1,27 +1,27 @@
 // port-lint: tests lib.rs
 package io.github.kotlinmania.either
 
-import io.github.kotlinmania.serdecore.de.I32Deserialize
-import io.github.kotlinmania.serdecore.de.StringDeserialize
-import io.github.kotlinmania.serdetest.Token
-import io.github.kotlinmania.serdetest.assertDeTokens
-import io.github.kotlinmania.serdetest.assertTokens
 import io.github.kotlinmania.serde.SerdeResult
 import io.github.kotlinmania.serdecore.de.Deserialize
 import io.github.kotlinmania.serdecore.de.Deserializer
+import io.github.kotlinmania.serdecore.de.I32Deserialize
+import io.github.kotlinmania.serdecore.de.StringDeserialize
 import io.github.kotlinmania.serdecore.ser.Serialize
 import io.github.kotlinmania.serdecore.ser.Serializer
 import io.github.kotlinmania.serdejson.fromStr
 import io.github.kotlinmania.serdejson.toStr
-import io.github.kotlinmania.either.serdeuntagged.deserialize as decodeUntagged
-import io.github.kotlinmania.either.serdeuntagged.serialize as encodeUntagged
-import io.github.kotlinmania.either.serdeuntaggedoptional.deserialize as decodeOptional
-import io.github.kotlinmania.either.serdeuntaggedoptional.serialize as encodeOptional
+import io.github.kotlinmania.serdetest.Token
+import io.github.kotlinmania.serdetest.assertDeTokens
+import io.github.kotlinmania.serdetest.assertTokens
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
+import io.github.kotlinmania.either.serdeuntagged.deserialize as decodeUntagged
+import io.github.kotlinmania.either.serdeuntagged.serialize as encodeUntagged
+import io.github.kotlinmania.either.serdeuntaggedoptional.deserialize as decodeOptional
+import io.github.kotlinmania.either.serdeuntaggedoptional.serialize as encodeOptional
 
 class EitherTest {
     @Test
@@ -423,28 +423,32 @@ class IntoEitherTest {
     }
 }
 
-private fun <L,R> untaggedDecoder(left: Deserialize<L>, right: Deserialize<R>): Deserialize<Either<L,R>> =
-    object : Deserialize<Either<L,R>> {
+private fun <L, R> untaggedDecoder(left: Deserialize<L>, right: Deserialize<R>): Deserialize<Either<L, R>> =
+    object : Deserialize<Either<L, R>> {
         override fun <D : Deserializer> deserialize(deserializer: D) = decodeUntagged(deserializer, left, right)
     }
 
-private fun <L,R> optionalDecoder(left: Deserialize<L>, right: Deserialize<R>): Deserialize<Either<L,R>?> =
-    object : Deserialize<Either<L,R>?> {
+private fun <L, R> optionalDecoder(left: Deserialize<L>, right: Deserialize<R>): Deserialize<Either<L, R>?> =
+    object : Deserialize<Either<L, R>?> {
         override fun <D : Deserializer> deserialize(deserializer: D) = decodeOptional(deserializer, left, right)
     }
 
-private fun intValue(value: Int): Serialize = object : Serialize {
-    override fun <Ok> serialize(serializer: Serializer<Ok>) = serializer.serializeI32(value)
-}
+private fun intValue(value: Int): Serialize =
+    object : Serialize {
+        override fun <Ok> serialize(serializer: Serializer<Ok>) = serializer.serializeI32(value)
+    }
 
-private fun stringValue(value: String): Serialize = object : Serialize {
-    override fun <Ok> serialize(serializer: Serializer<Ok>) = serializer.serializeStr(value)
-}
+private fun stringValue(value: String): Serialize =
+    object : Serialize {
+        override fun <Ok> serialize(serializer: Serializer<Ok>) = serializer.serializeStr(value)
+    }
 
-private fun untaggedValue(value: Either<Int,String>): Serialize = object : Serialize {
-    override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> = encodeUntagged(value, serializer, ::intValue, ::stringValue)
-}
+private fun untaggedValue(value: Either<Int, String>): Serialize =
+    object : Serialize {
+        override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> = encodeUntagged(value, serializer, ::intValue, ::stringValue)
+    }
 
-private fun optionalValue(value: Either<Int,String>?): Serialize = object : Serialize {
-    override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> = encodeOptional(value, serializer, ::intValue, ::stringValue)
-}
+private fun optionalValue(value: Either<Int, String>?): Serialize =
+    object : Serialize {
+        override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> = encodeOptional(value, serializer, ::intValue, ::stringValue)
+    }

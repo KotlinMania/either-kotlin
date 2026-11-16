@@ -2,10 +2,6 @@ import Testing
 import Either
 
 @Suite struct EitherExportTests {
-    @Test func testSwiftModuleLoads() {
-        #expect(Bool(true), "Either swift module imported cleanly")
-    }
-
     @Test func testEitherFromSwift() {
         let left = Either.Left(value: "hello")
         #expect(left.value != nil)
