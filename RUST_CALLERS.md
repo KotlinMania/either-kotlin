@@ -16,29 +16,29 @@ For every Rust crate this repo owns (under `tmp/`), this file lists every **cros
 
 | package | module | inbound use sites | distinct caller crates | distinct caller repos | codex sites |
 |---|---|---:|---:|---:|---:|
-| `either` | `either` | 52 | 8 | 4 | 0 |
+| `either` | `either` | 57 | 12 | 8 | 0 |
 
 ## `either`
 
-### Inbound symbols (2 distinct, 52 total `use` sites)
+### Inbound symbols (2 distinct, 57 total `use` sites)
 
 Sorted by codex demand, then total demand. The first symbols are the priority queue for porting `either`.
 
-#### `either::Either` — 50 site(s) (0 codex, 50 other, 7 caller crates)
+#### `either::Either` — 55 site(s) (0 codex, 55 other, 11 caller crates)
 
 - `allocative-kotlin/allocative` `src/impls/either.rs:4` — `use either::Either`
 - `allocative-kotlin/allocative` `src/impls/either.rs:23` — `use either::Either`
+- `axum-server-kotlin/axum-server` `src/server.rs:6` — `use either::Either`
+- `gazebo-kotlin/display_container` `src/lib.rs:59` — `use either::Either`
 - `itertools-kotlin/itertools` `src/either_or_both.rs:4` — `use either::Either`
 - `itertools-kotlin/itertools` `src/exactly_one_err.rs:6` — `use either::Either`
 - `itertools-kotlin/itertools` `src/lib.rs:62` — `pub_use either::Either`
 - `itertools-kotlin/itertools` `src/merge_join.rs:5` — `use either::Either`
 - `itertools-kotlin/itertools` `tests/quick.rs:858` — `use either::Either`
 - `itertools-kotlin/itertools` `tests/quick.rs:873` — `use either::Either`
-- `starlark-kotlin/allocative` `src/impls/either.rs:4` — `use either::Either`
-- `starlark-kotlin/allocative` `src/impls/either.rs:23` — `use either::Either`
-- `starlark-kotlin/display_container` `src/lib.rs:59` — `use either::Either`
-- `starlark-kotlin/pagable` `src/pagable_arc.rs:113` — `use either::Either`
-- _… and 38 more site(s)._
+- `pyo3-kotlin/pyo3` `src/conversions/either.rs:55` — `use either::Either`
+- `pyo3-kotlin/pyo3` `src/conversions/either.rs:138` — `use either::Either`
+- _… and 43 more site(s)._
 
 #### `either1::Either` — 2 site(s) (0 codex, 2 other, 1 caller crates)
 
