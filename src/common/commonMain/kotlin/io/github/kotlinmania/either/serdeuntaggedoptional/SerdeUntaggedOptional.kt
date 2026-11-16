@@ -109,15 +109,29 @@ public fun <`L`, `R`, `__rk3`> `serialize`(
         if (`__rk12` == null) {
             `serializer`.serializeNone()
         } else {
-            `serializer`.serializeSome(
-                object : Serialize {
-                    override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
-                        `__rk0`(`__rk12`, serializer, `__rk4`, `__rk5`)
-                },
-            )
+            `serializer`.serializeSome(someUntagged(`__rk12`, `__rk4`, `__rk5`))
         }
     }
 }
+
+private fun <`L`, `R`> someUntagged(
+    untagged: `Either`<`L`, `R`>,
+    encode0: (`L`) -> Serialize,
+    encode1: (`R`) -> Serialize,
+): Serialize =
+    object : Serialize {
+        override fun <Ok> serialize(serializer: Serializer<Ok>): SerdeResult<Ok> =
+            `__rk0`(untagged, serializer, encode0, encode1)
+    }
+
+private fun <`L`, `R`> untaggedOptionDecoder(
+    decode0: Deserialize<`L`>,
+    decode1: Deserialize<`R`>,
+): Deserialize<`Either`<`L`, `R`>> =
+    object : Deserialize<`Either`<`L`, `R`>> {
+        override fun <D : Deserializer> deserialize(deserializer: D): SerdeResult<`Either`<`L`, `R`>> =
+            `__rk1`(deserializer, decode0, decode1)
+    }
 
 public fun <`L`, `R`> `deserialize`(
     `deserializer`: Deserializer,
@@ -126,12 +140,7 @@ public fun <`L`, `R`> `deserialize`(
 ): SerdeResult<`io`.`github`.`kotlinmania`.`either`.`Either`<`L`, `R`>?> {
     return run __rk17@{
         val `__rk16` =
-            nullableDeserialize(
-                object : Deserialize<`Either`<`L`, `R`>> {
-                    override fun <D : Deserializer> deserialize(deserializer: D): SerdeResult<`Either`<`L`, `R`>> =
-                        `__rk1`(deserializer, `__rk14`, `__rk15`)
-                },
-            ).deserialize(`deserializer`)
+            nullableDeserialize(untaggedOptionDecoder(`__rk14`, `__rk15`)).deserialize(`deserializer`)
         if (`__rk16` is SerdeResult.Success) {
             val `__rk18` = `__rk16`.value
             if (`__rk18` != null) {

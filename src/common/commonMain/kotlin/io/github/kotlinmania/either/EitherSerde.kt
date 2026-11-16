@@ -40,23 +40,23 @@ public object `EitherSerde` {
                                 when (index) {
                                     0 ->
                                         payload
-                                            .newtypeVariantSeed(
-                                                object : DeserializeSeed<`L`> {
-                                                    override fun <`__serde5` : Deserializer> deserialize(deserializer: `__serde5`): SerdeResult<`L`> = `__serde3`.deserialize(deserializer)
-                                                },
-                                            ).map { `Either`.`Left`(it) }
+                                            .newtypeVariantSeed(asSeed(`__serde3`))
+                                            .map { `Either`.`Left`(it) }
                                     1 ->
                                         payload
-                                            .newtypeVariantSeed(
-                                                object : DeserializeSeed<`R`> {
-                                                    override fun <`__serde5` : Deserializer> deserialize(deserializer: `__serde5`): SerdeResult<`R`> = `__serde4`.deserialize(deserializer)
-                                                },
-                                            ).map { `Either`.`Right`(it) }
+                                            .newtypeVariantSeed(asSeed(`__serde4`))
+                                            .map { `Either`.`Right`(it) }
                                     else -> error("unreachable: validated variant index")
                                 }
                             }
                     },
                 )
+        }
+
+    private fun <`T`> asSeed(delegate: Deserialize<`T`>): DeserializeSeed<`T`> =
+        object : DeserializeSeed<`T`> {
+            override fun <`__serde7` : Deserializer> deserialize(deserializer: `__serde7`): SerdeResult<`T`> =
+                delegate.deserialize(deserializer)
         }
 
     private val variants = listOf("Left", "Right")
