@@ -85,9 +85,7 @@ public object `EitherSerde` {
                     SerdeResult.failure(
                         SerdeError.invalidValue(
                             Unexpected.Unsigned(v),
-                            object : Expected {
-                                override fun expecting(): String = "variant index 0 <= i < 2"
-                            },
+                            Expected { "variant index 0 <= i < 2" },
                         ),
                     )
             }
