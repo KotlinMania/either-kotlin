@@ -1,0 +1,15 @@
+# Preserve local experiments without committing executables or build caches.
+/*
+!/.gitignore
+!/README.md
+!/serde-production-01/
+!/serde-modules-07/
+!/serde-production-check-01/
+/serde-modules-07/*
+!/serde-modules-07/validation.json
+!/serde-modules-07/rust.stdout
+!/serde-modules-07/kotlin.stdout
+/serde-production-check-01/*
+!/serde-production-check-01/validation.json
+!/serde-production-check-01/rust.stdout
+!/serde-production-check-01/kotlin.stdout

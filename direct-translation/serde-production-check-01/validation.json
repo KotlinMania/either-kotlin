@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "observations": 25,
+  "compatibility_checks": 2,
+  "production_files": [
+    {
+      "raw": "direct-translation/serde-production-01/serde_untagged/generated.kt",
+      "adopted": "src/commonMain/kotlin/io/github/kotlinmania/either/serdeuntagged/SerdeUntagged.kt",
+      "sha256": "fbfd65c5b74f0548c20fe6616e8e82e1b84097cc0c720d11aa255f7c163ffc90"
+    },
+    {
+      "raw": "direct-translation/serde-production-01/serde_untagged_optional/generated.kt",
+      "adopted": "src/commonMain/kotlin/io/github/kotlinmania/either/serdeuntaggedoptional/SerdeUntaggedOptional.kt",
+      "sha256": "db7ee556259f6d2402607f5a1e3a0cf1a0be57ebd6a7171ac73bb2dc7b810aa4"
+    },
+    {
+      "raw": "direct-translation/serde-production-01/tagged/generated.kt",
+      "adopted": "src/commonMain/kotlin/io/github/kotlinmania/either/EitherSerde.kt",
+      "sha256": "7204b6334065ca39be9a8b88150b59349af4c29faaa9111827afa940c7171670"
+    }
+  ],
+  "compiled_library": {
+    "default/ir/bodies.knb": "610bd63272203564f74aaf5f3811fc6951fe22df75a55f1b141649b5b9027264",
+    "default/ir/debugInfo.knd": "64f363d2734d3e645d4f8ba34a34794f2035978cdde2a0ebd414e36a84ba7444",
+    "default/ir/fileEntries.knf": "7368db9ead6c8fb36bcda9e05845532f80cf5f793decdb3a9bcd2bc77c6979b3",
+    "default/ir/files.knf": "954151f41f81416203d9e52ac63740f7a4e8aa0bcf65a16599bef3bea5528322",
+    "default/ir/irDeclarations.knd": "81a6c9fde501db255a3cf9a9c36183f68c8646e7fba5d754bb3d802e282066e2",
+    "default/ir/signatures.knt": "887cdbd5c4160233fda8aaeb0ceccc11d7a24410a54f7a799fa9d0678e78079f",
+    "default/ir/strings.knt": "7b17baef19d58e60dff32de6a6fe794cd409317ff12cd35ae88d2fc5e87bedb4",
+    "default/ir/types.knt": "ed15aa544720fedd9be6c7de53ccb465eef5b0f2cf759ca04bfb9695cd6b2ea5",
+    "default/ir_inlinable_functions/bodies.knb": "91f06235671ba18eb5f8270590be31f5ae3797ee3fdedbbaa00b29fd2ec6caf2",
+    "default/ir_inlinable_functions/debugInfo.knd": "91f06235671ba18eb5f8270590be31f5ae3797ee3fdedbbaa00b29fd2ec6caf2",
+    "default/ir_inlinable_functions/fileEntries.knf": "91f06235671ba18eb5f8270590be31f5ae3797ee3fdedbbaa00b29fd2ec6caf2",
+    "default/ir_inlinable_functions/files.knf": "0f12c2f818e12fcc640fc71a4a8365bac4b6ab28971b56da08fdf562535c0f48",
+    "default/ir_inlinable_functions/irDeclarations.knd": "91f06235671ba18eb5f8270590be31f5ae3797ee3fdedbbaa00b29fd2ec6caf2",
+    "default/ir_inlinable_functions/signatures.knt": "91f06235671ba18eb5f8270590be31f5ae3797ee3fdedbbaa00b29fd2ec6caf2",
+    "default/ir_inlinable_functions/strings.knt": "3d87fcf14c927b3ba6539fc4d59647ed14b4d9ca3ba9e03752797ae7c08d9ba0",
+    "default/ir_inlinable_functions/types.knt": "91f06235671ba18eb5f8270590be31f5ae3797ee3fdedbbaa00b29fd2ec6caf2",
+    "default/linkdata/module": "2c580bff3ad5160ddd7552040d28ad90e5f1417a4cb3d9987effbc38422164ac",
+    "default/linkdata/package_io.github.kotlinmania.either/0_either.knm": "a214c338322a8f18057da6759f095e984066a527d2c4bdf4784b3fdc50b60125",
+    "default/linkdata/package_io.github.kotlinmania.either/1_either.knm": "e64a5219b3ad6d6ef48a79dca94565ec2c0e031fd5b344a61957a08cdfea7799",
+    "default/linkdata/package_io.github.kotlinmania.either/2_either.knm": "e36a225bff3117a709f3f67c2211f211abd0585de6e0737f94be386268938898",
+    "default/linkdata/package_io.github.kotlinmania.either/3_either.knm": "11ff5621b442fc272155a4647ab042cfd30a11bf53f1da33a08f59e931c6ce19",
+    "default/linkdata/package_io.github.kotlinmania.either.serdeuntagged/0_serdeuntagged.knm": "85f5c815d5e69c77ad033cbcab797699f0cdd5db8561f3f273b3cc270fda9909",
+    "default/linkdata/package_io.github.kotlinmania.either.serdeuntaggedoptional/0_serdeuntaggedoptional.knm": "6033412bc043b8967ff0985d3efce0d5ecd964373b81ad8ff30d35d633e91b5c",
+    "default/manifest": "34fc4c1e2660de78ba0a32b4d66c5ab7861ca67d1bb530b123ad05fa9e2d32b4"
+  },
+  "rust_oracle": "/Volumes/stuff/Projects/kotlinmania/either-kotlin/direct-translation/serde-modules-07",
+  "limits": [
+    "macOS production protocol check; not the JSON/full target test suite",
+    "legacy dynamic wrapSerialize adapter remains separate from typed generated codec contract"
+  ]
+}

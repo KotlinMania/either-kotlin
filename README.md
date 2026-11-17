@@ -12,7 +12,7 @@ This is a Kotlin Multiplatform line-by-line transliteration port of [`rayon-rs/e
 
 ```kotlin
 dependencies {
-    implementation("io.github.kotlinmania:either-kotlin:0.1.1")
+    implementation("io.github.kotlinmania:either-kotlin:0.1.2")
 }
 ```
 
